@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: "Caveat";
+  src: url('fonts/Caveat.ttf') format('ttf'),
+  url('fonts/Caveat.ttf') format('woff');
+}
+
+
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  cursor: url("img/heart2.svg") 6 6, auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  margin-top: 30px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 10;
+  font-size: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.audio-name {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 12px;
+  max-width: 150px;       /* фиксируем ширину */
+  white-space: nowrap;    /* в одну строку */
+  overflow: hidden;       
+  text-overflow: ellipsis;
+}
+
+.logo-text {
+  font-family: 'Caveat', sans-serif;
+}
+
+.player {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.player-buttons {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playPause {
+  width: 30px;
+  height: 30px;
+  background-color: #505EFF;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+
+.playPause:hover {
+  background-color: #1f31ff;
+  transition: .3s;
+}
+
+.next, .prev {
+  padding: 10px;
+}
+
+.next:hover, .prev:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EDEDED;
+  transition: .3s;
+}
+
+.ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.slide {
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 15vh;
+}
+
+.first-slide-content {
+  width: 100%;
+  background-color: #ffffff70;
+  padding: 70px;
+  border-radius: 10px;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ready {
+  padding: 10px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: #505EFF;
+  transition: .3s;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 20px;
+  user-select: none;
+}
+
+.ready:hover {
+  background-color:#1f31ff;
+  transition: .3s;
+}
+
+.first-slide-text {
+  font-family: 'Montserrat Alternates', sans-serif;
+  text-align: center;
+  font-size: 40px;
+}
+
+.emoji {
+  font-size: 128px;
+}
+
+.helper {
+  font-size: 20px;
+}
+
+
+
+.second-slide-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10%;
+  gap: 30px;
+}
+
+.left-block {
+  background-color: #ffffff70;
+  height: 468px;
+  border-radius: 10px;
+}
+
+.hello-text, .top-block-text, .bottom-block-text {
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-size: 46px;
+  padding: 20px;
+}
+
+.hello-text {
+  width: 554px;
+}
+
+.hello-second-text, .moments-text {
+  font-family: 'Caveat';
+  font-size: 20px;
+  padding: 0 20px 20px 20px;
+}
+
+.third-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+.top-block {
+  background-color: #ffffff70;
+  border-radius: 10px;
+}
+
+.bottom-block {
+  background-color: #ffffff70;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-template-rows: repeat(3, 50px);
+  gap: 2px;
+  margin-top: 20px;
+}
+
+.puzzle-piece {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc; /* твое фото */
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-size: cover;
+  transition: all 0.2s ease;
+}
+
+.puzzle-piece.empty {
+  background: #f0f0f0; /* пустая ячейка */
+  cursor: default;
+}
+
+.puzzle-popup {
+  display: none; /* скрыт по умолчанию */
+  position: fixed; /* поверх всего контента */
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(img/popup_back.svg);
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  font-size: 18px;
+  text-align: center;
+  width: 455px;
+  height: 455px;
+  z-index: 100;
+
+  background-color: rgba(0, 0, 0, 0.6); /* полупрозрачный черный слой */
+  backdrop-filter: blur(4px); /* размытие того, что за попапом */
+}
+
+.puzzle-popup-text {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+}
+
+.puzzle-popup.show {
+  display: flex;
+  flex-direction: column;
+  gap: 140px;
+  align-items: center;
+  padding-top: 190px;
+}
+
+.puzzle-popup-btn {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #505EFF;
+  color: #fff;
+  transition: .3s;
+  width: 100px;
+}
+
+.puzzle-popup-btn:hover {
+  background-color: #1f31ff;
+  transition: .3s;
+}
+
+.word-popup {
+  position: relative;
+  cursor: pointer;
+  color: #1a73e8; /* подсветка слова */
+  text-decoration: underline;
+}
+
+.text-popup {
+  display: none; /* скрыт по умолчанию */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 5px;
+  z-index: 100;
+  pointer-events: none; /* чтобы мышь не мешала */
+}
+
+.text-popup img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Видео — ограничиваем только по ширине, высота подстраивается */
+.text-popup video {
+  max-width: 200px;   /* можно подстроить под экран */
+  width: 100%;
+  height: auto;       /* сохраняем пропорции */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.four-slide-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.four-left-block {
+  background-color: #ffffff70;
+  border-radius: 10px;
+  width: 750px;
+  height: 635px;
+}
+
+.four-left-block h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  padding: 20px 0 0 10px;
+}
+
+.left-block-text {
+  font-family: 'Caveat';
+  font-size: 20px;
+  padding: 0 5px 5px 5px;
+}
+
+.four-right-block {
+  width: 300px;
+  height: 635px;
+  border-radius: 10px;
+  background-color: #ffffff70;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.four-right-block-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 20px 0 0 10px;
+}
+
+.five-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.five-left-block {
+  background-color: #ffffff70;
+  border-radius: 10px;
+  width: 750px;
+  height: 635px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+.five-left-block-text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  padding: 20px 0 0 10px;
+}
+
+.five-left-block-text p {
+  font-family: 'Caveat';
+  font-size: 20px;
+  padding: 0 5px 5px 10px;
+}
+
+.five-left-block-pic {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.five-right-block-content {
+  background-color: #ffffff70;
+  border-radius: 10px;
+  height: 635px;
+  width: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align:center;
+}
+
+#letter{
+    cursor:pointer;
+    transition:opacity .6s ease, transform .6s ease;
+}
+
+#letter.hide{
+    display: none;
+    transform:scale(.9);
+    pointer-events:none;
+}
+
+#envelope{
+    width:260px;
+}
+
+/* Клапан — ЗАКРЫТ (накрывает сверху) */
+.flap{
+    transform-origin: bottom;
+    transform: scaleY(-1);
+    transition:transform .8s ease;
+    transform-box:fill-box;
+    backface-visibility:hidden;
+    z-index: 2;
+}
+
+/* При открытии — поднимается вверх */
+.open .flap{
+    transform: scaleY(1);
+}
+
+/* Лист */
+.paper{
+    transition:transform .8s ease;
+    z-index: 1;
+}
+
+/* Лист выезжает НАД крышкой */
+.open .paper{
+    transform:translateY(-70px);
+}
+
+.letter-text{
+    margin-top:12px;
+    font-size:18px;
+}
+
+/* ===== QR ===== */
+
+#qr-container{
+    display:none;
+    opacity:0;
+    transition:opacity .6s ease;
+}
+
+#qr-container.show{
+    opacity:1;
+}
+
+
+
+.qr-text {
+  display: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 80px;
+  transition: opacity 0.5s ease;
+  opacity: 0; /* для плавного появления */
+}
+
+.qr-text.show {
+  display: block;  /* чтобы элемент появился в потоке */
+  opacity: 1; 
+} 
+
+.letter-text {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 20px;
+}
+
+
+
+
+#tic-tac-toe {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+#tic-tac-toe .cell {
+  background: #f8f8f8;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+#tic-tac-toe .cell:hover {
+  background: #eee;
+}
+
+#win-message {
+  font-family: 'Montserrat Alternates', sans-serif;
+  
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.win-message-text {
+  padding: 0 0 20px 10px;
+  font-size: 14px;
+}
+
+#bg-audio {
+  display: none;
+}
+
+.icon-pause {
+  display: none;
+}
+
+.playing .icon-play {
+  display: none;
+}
+
+.playing .icon-pause {
+  display: inline;
+}
+
+.typewriter {
+  visibility: hidden;
+}
+
+
+.first {
+  background-image: url(img/back.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.second {
+  background-image: url(img/back2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.third {
+  background-image: url(img/back3.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.four {
+  background-image: url(img/back.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.five {
+  background-image: url(img/back2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
